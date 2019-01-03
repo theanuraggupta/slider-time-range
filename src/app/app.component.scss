@@ -59,11 +59,17 @@ form,
 
 
 section{
-    padding: 30px;
     width: 40%;
     select{
         width: 300px;
     }
+}
+
+section:nth-child(1){
+    padding: 10px;
+}
+section:nth-child(2){
+    padding: 40px;
 }
 
 .range{
@@ -77,4 +83,17 @@ section{
 
 .float-left{
     float: left;
+}
+
+.start-range{
+    @extend .float-left;
+    position: absolute;
+    top: 18px;
+    left: -45px
+}
+.end-range{
+    @extend .float-right;
+    position: absolute;
+    top: 18px;
+    right: -40px
 }

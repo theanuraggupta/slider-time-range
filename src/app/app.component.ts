@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   selectedRange: any;
   selectedTime: number;
-  setWidth: number;
+  sliderWidth: number;
+  timerWidth: number;
   selectDropdown: any = [
     {
         "value": 1,
@@ -50,6 +51,7 @@ export class AppComponent {
   changedTime(value){
     let range = this.selectedRange.endRange - this.selectedRange.startRange;
     let s = value - this.selectedRange.startRange;
-    this.setWidth = (s / range) * 100;
+    this.timerWidth = (s / range) * 100;
+    this.sliderWidth = this.timerWidth + (this.timerWidth >9 ? 1.5 : 1);
   }
 }
