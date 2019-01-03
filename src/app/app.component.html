@@ -15,6 +15,7 @@
         <br>
       </section>
       <section class="float-right">
+        <label>Select a particular loading time.</label><br><br>
         <div class="range">
           <span class="slider-time" *ngIf="sliderWidth!==selectedRange.startRange && sliderWidth !== selectedRange.endRange" [ngStyle]="{left: timerWidth + '%' || '0%' }">{{selectedTime}}</span>
           <span class="start-range">{{selectedRange.startRange}}</span>
