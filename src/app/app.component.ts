@@ -39,7 +39,7 @@ export class AppComponent {
   ];
   constructor(){}
   ngOnInit() {
-    this.selectedRange = this.selectDropdown[0];
+    this.selectedRange = this.selectDropdown[1];
     this.changedValue(this.selectedRange);
   }
 

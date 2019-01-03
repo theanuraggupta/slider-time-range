@@ -10,10 +10,6 @@ form,
     .percentage-cur .num {
         margin-right: 5px;
     }
-    .slider-time{
-        position: absolute;
-        top: -7px;
-    }
     .progress-bar {
         width: 100%;
         height: 4px;
@@ -78,25 +74,81 @@ section:nth-child(2){
 .range{
     position: relative;
     transition: all 0.5s ease-out;
+    span{
+        position: absolute;
+        top: 10px;
+    }
 }
 
 .float-right{
     float: right;
+    right: 0;
 }
 
 .float-left{
     float: left;
 }
 
-.start-range{
-    @extend .float-left;
+.switch {
+    float: left;
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+  }
+  .slider {
     position: absolute;
-    top: 14px;
-    left: -35px
-}
-.end-range{
-    @extend .float-right;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
     position: absolute;
-    top: 14px;
-    right: 20px
-}
+    content: "";
+    height: 20px;
+    width: 18px;
+    left: 3px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .checkbox{
+      b{
+          margin-left: 20px;
+      }
+  }
