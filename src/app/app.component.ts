@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,9 @@ export class AppComponent {
   selectedTime: number;
   sliderWidth: number;
   timerWidth: number;
+  isScreen1: boolean;
+  isScreen2: boolean;
+  enableTimer: boolean;
   selectDropdown: any = [
     {
         "value": 1,
@@ -39,7 +42,8 @@ export class AppComponent {
   ];
   constructor(){}
   ngOnInit() {
-    this.selectedRange = this.selectDropdown[1];
+    this.isScreen1 = true;
+    this.selectedRange = this.selectDropdown[0];
     this.changedValue(this.selectedRange);
   }
 
@@ -52,6 +56,21 @@ export class AppComponent {
     let range = this.selectedRange.endRange - this.selectedRange.startRange;
     let s = value - this.selectedRange.startRange;
     this.timerWidth = (s / range) * 100;
-    this.sliderWidth = this.timerWidth + (this.timerWidth >9 ? 1.5 : 1); // for aligning the timerWidth
+    this.sliderWidth = this.timerWidth + (this.timerWidth >9 ? 1.5 : 1); // for aligning the timerWidth, adding some more width
+  }
+
+  submit(){
+    this.isScreen1 = false;
+    if(!this.enableTimer){
+      this.isScreen2 = true;
+      this.enableTimer = false;
+      console.log(this.isScreen2);
+    }else{
+      setTimeout(function(){
+        this.isScreen1 = false;
+        this.isScreen2 = true;
+        console.log(this.isScreen2);
+      }, this.selectedTime * 1000);
+    }
   }
 }

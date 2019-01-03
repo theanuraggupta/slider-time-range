@@ -3,7 +3,7 @@
     <header>
       Header
     </header><br>
-    <form *ngIf="!isScreen2" name="sliderForm">
+    <form [hidden]="isScreen2" name="sliderForm">
       <section class="float-left">
         <label>Select the loading time range</label><br>
         <span>(in seconds)</span><br><br>
@@ -14,12 +14,9 @@
         </select>
         <br>
       </section>
-      <section class="float-right">
+      <section class="float-left">
         <label>Select a particular loading time.</label><br><br>
         <div class="progress-box">
-          <!-- <div class="percentage-cur">
-            <span class="num">{{selectedRange.startRange}}</span>
-          </div> -->
           <div class="progress-bar progress-bar-slider">
             <input class="progress-slider" type="range" name="timeControl" min="{{selectedRange.startRange}}" max="{{selectedRange.endRange}}" [(ngModel)]="selectedTime" (change) = "changedTime(selectedTime)">
             <div class="inner" [ngStyle]="{ width: sliderWidth + '%' || '0%' }"></div>
@@ -33,11 +30,25 @@
         
         <label class="checkbox">
           <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" [(ngModel)]="enableTimer" name="checkbox">
             <span class="slider round"></span>
           </label>
           <b>Enable the loading time as selected on slider</b>
         </label>
       </section>
+      <br><br><br><br>
+      <div class="button-center">
+        <button type="button" (click)="submit()">Submit</button>
+      </div>
     </form>
+    <div [hidden]="isScreen1">
+      <section>
+        Congratulations !!!!!
+        <br><br>
+        <b>Night</b>&nbsp;<span>is</span>&nbsp;<b>Dark</b>&nbsp;<span>and</span><b>Full</b>&nbsp;<span>of</span>&nbsp;<b>Terrors</b>
+      </section>
+      <div class="button-center">
+        <button type="button" (click)="isScreen2=false;isScreen1=true;">Simulate Again</button>
+      </div>
+    </div>
 </div>
