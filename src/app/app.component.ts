@@ -52,6 +52,6 @@ export class AppComponent {
     let range = this.selectedRange.endRange - this.selectedRange.startRange;
     let s = value - this.selectedRange.startRange;
     this.timerWidth = (s / range) * 100;
-    this.sliderWidth = this.timerWidth + (this.timerWidth >9 ? 1.5 : 1);
+    this.sliderWidth = this.timerWidth + (this.timerWidth >9 ? 1.5 : 1); // for aligning the timerWidth
   }
 }
