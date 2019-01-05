@@ -1,5 +1,5 @@
-<form name="sliderForm">
-  <section class="float-left">
+<form name="sliderForm" class="slider-form">
+  <section class="float-left text-center">
     <label>Select the loading time range</label><br>
     <span>(in seconds)</span><br><br>
     <select [(ngModel)]="selectedRange" name="selectControl" (change) = "changedValue(selectedRange)">
@@ -9,8 +9,9 @@
     </select>
     <br>
   </section>
-  <section class="float-left">
-    <label>Select a particular loading time.</label><br><br>
+  <section class="float-right">
+    <div class="text-center">
+    <label>Select a particular loading time.</label></div><br><br>
     <div class="progress-box">
       <div class="progress-bar progress-bar-slider">
         <input class="progress-slider" type="range" name="timeControl" min="{{selectedRange.startRange}}" max="{{selectedRange.endRange}}" [(ngModel)]="selectedTime" (change) = "changedTime(selectedTime)">

@@ -58,7 +58,7 @@ export class Screen1Component implements OnInit {
     this.sliderWidth = this.timerWidth + (this.timerWidth > 9 ? 1.5 : 1); // for aligning the timerWidth, adding some more width
   }
 
-  navigateToScreen2(){
+  navigateToScreen2() {
     this.router.navigate(['/screen2']);
   }
 
