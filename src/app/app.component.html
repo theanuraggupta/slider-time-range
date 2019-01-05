@@ -3,52 +3,6 @@
     <header>
       Header
     </header><br>
-    <form [hidden]="isScreen2" name="sliderForm">
-      <section class="float-left">
-        <label>Select the loading time range</label><br>
-        <span>(in seconds)</span><br><br>
-        <select [(ngModel)]="selectedRange" name="selectControl" (change) = "changedValue(selectedRange)">
-          <option [ngValue]="option" *ngFor="let option of selectDropdown"> 
-              {{option.startRange}} - {{option.endRange}}
-          </option>
-        </select>
-        <br>
-      </section>
-      <section class="float-left">
-        <label>Select a particular loading time.</label><br><br>
-        <div class="progress-box">
-          <div class="progress-bar progress-bar-slider">
-            <input class="progress-slider" type="range" name="timeControl" min="{{selectedRange.startRange}}" max="{{selectedRange.endRange}}" [(ngModel)]="selectedTime" (change) = "changedTime(selectedTime)">
-            <div class="inner" [ngStyle]="{ width: sliderWidth + '%' || '0%' }"></div>
-          </div>
-          <div class="range">
-            <span *ngIf="sliderWidth!==selectedRange.startRange && sliderWidth !== selectedRange.endRange" [ngStyle]="{left: timerWidth + '%' || '0%' }">{{selectedTime}} s</span>
-            <span class="float-left">{{selectedRange.startRange}}  s</span>
-            <span class="float-right">{{selectedRange.endRange}} s</span>
-          </div>
-        </div><br><br>
-        
-        <label class="checkbox">
-          <label class="switch">
-            <input type="checkbox" [(ngModel)]="enableTimer" name="checkbox">
-            <span class="slider round"></span>
-          </label>
-          <b>Enable the loading time as selected on slider</b>
-        </label>
-      </section>
-      <br><br><br><br>
-      <div class="button-center">
-        <button type="button" (click)="submit()">Submit</button>
-      </div>
-    </form>
-    <div [hidden]="isScreen1">
-      <section>
-        Congratulations !!!!!
-        <br><br>
-        <b>Night</b>&nbsp;<span>is</span>&nbsp;<b>Dark</b>&nbsp;<span>and</span><b>Full</b>&nbsp;<span>of</span>&nbsp;<b>Terrors</b>
-      </section>
-      <div class="button-center">
-        <button type="button" (click)="isScreen2=false;isScreen1=true;">Simulate Again</button>
-      </div>
-    </div>
+    
+    <router-outlet></router-outlet>
 </div>
