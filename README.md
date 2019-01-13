@@ -18,6 +18,9 @@ Screen 2
 ![slider screen 2](https://user-images.githubusercontent.com/15166401/51086840-5b2e1200-1771-11e9-85c7-bab17c4738c0.PNG)
 
 
+PS:  The design may not look the same although the functionality is complete
+
+
 ## Development server
 
 1. Run `npm install` to install node packages
